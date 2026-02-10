@@ -49,36 +49,25 @@
       position: relative;
     }
 
-    button {
-      background: #ff3366;
-      color: white;
-      border: none;
-      padding: 12px 20px;
-      border-radius: 12px;
-      font-size: 1rem;
-      cursor: pointer;
-      margin: 10px;
-      transition: transform 0.2s ease;
-      user-select: none;
-    }
-
-    button:hover {
-      transform: scale(1.1);
-    }
-
-    .no {
-      background: #aaa;
-      position: relative;
-    }
-
-    #weddingInput {
-      padding: 10px 15px;
+    input[type="text"] {
+      padding: 10px;
       font-size: 1.1rem;
       border-radius: 12px;
       border: 2px solid #ff3366;
-      width: 250px;
-      margin-top: 10px;
+      width: 60px;
+      margin: 0 5px;
       text-align: center;
+    }
+
+    #weddingSubmit {
+      background: #ff3366;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 12px;
+      cursor: pointer;
+      margin-top: 10px;
+      font-size: 1rem;
     }
 
     #weddingMsg {
@@ -135,7 +124,11 @@
   <!-- Wedding Date Input Card -->
   <div class="card">
     <h2>Enter Our Wedding Date 🎉</h2>
-    <input type="text" id="weddingInput" placeholder="Type here..." />
+    <input type="text" id="day" placeholder="DD" maxlength="2" />
+    <input type="text" id="month" placeholder="MM" maxlength="2" />
+    <input type="text" id="year" placeholder="YYYY" maxlength="4" />
+    <br>
+    <button id="weddingSubmit">Submit</button>
     <div id="weddingMsg"></div>
   </div>
 
@@ -154,17 +147,17 @@
   <!-- Why You’re Stuck With Me -->
   <div class="card">
     <h2>Why You’re Stuck With Me 😌</h2>
-    <p>✔ Loyal</p>
+    <p>✔ Im Good boy</p>
     <p>✔ Loves you an unreasonable amount</p>
-    <p>✔ Will still choose you in every lifetime</p>
+    <p>✔ I am your Hubby</p>
     <p>✔ Occasionally annoying (for balance)</p>
   </div>
 
   <!-- Real Talk -->
   <div class="card">
-    <h2>Real Talk 🥹</h2>
+    <h2> Romba mukkiyam! </h2>
     <p>
-      Hello pinjani kunjani wife. Happy valentines day seekram cal kootitu come paramakudi miisssss youuuuu love youuuuuu (madhampatti style). Ummmaaaaaaaaa
+      Hiii Pondattiiii. Happy valentines day seekram cal kootitu paramakudi vandhuru... miisssss youuuuu.....love youuuuuu (madhampatti style). Ummmaaaaaaaaa
     </p>
   </div>
 
@@ -217,19 +210,25 @@
       if (pieces.length > 0) requestAnimationFrame(updateConfetti);
     }
 
-    // Wedding date input logic
-    const weddingInput = document.getElementById('weddingInput');
+    // Wedding date submit logic
+    const dayInput = document.getElementById('day');
+    const monthInput = document.getElementById('month');
+    const yearInput = document.getElementById('year');
+    const submitBtn = document.getElementById('weddingSubmit');
     const weddingMsg = document.getElementById('weddingMsg');
 
-    weddingInput.addEventListener('keyup', (e) => {
-      if(e.key === 'Enter') {
-        if (weddingInput.value.trim().toLowerCase() === 'january 10 2025') {
-          weddingMsg.textContent = 'Congrats More chikk chikkk waiting for you 🎉';
-          startConfetti();
-          weddingInput.disabled = true;
-        } else {
-          weddingMsg.textContent = 'Try again 😉';
-        }
+    submitBtn.addEventListener('click', () => {
+      const day = dayInput.value.trim();
+      const month = monthInput.value.trim();
+      const year = yearInput.value.trim();
+
+      if(day === '10' && month === '01' && year === '2025') {
+        weddingMsg.textContent = 'Congrats More chikk chikkk waiting for you 🎉';
+        startConfetti();
+        dayInput.disabled = monthInput.disabled = yearInput.disabled = true;
+        submitBtn.disabled = true;
+      } else {
+        weddingMsg.textContent = 'Try again 😉';
       }
     });
 
@@ -249,7 +248,7 @@
       const x = Math.random() * 150 + 50;
       const y = Math.random() * 60 - 30;
       btnOlive.style.transform = `translate(${x}px, ${y}px)`;
-      teaseMsg.textContent = "Olive who? You know where your heart is 😉";
+      teaseMsg.textContent = "Olive venuma diiii? You know where your heart is 😉";
     });
 
     btnOlive.addEventListener('mouseleave', () => {
