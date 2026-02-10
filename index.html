@@ -71,27 +71,20 @@
       position: relative;
     }
 
-    .wedding-date {
-      max-height: 100px;
-      overflow-y: scroll;
-      margin: 10px auto;
-      width: 250px;
-      border: 2px solid #ff3366;
-      border-radius: 15px;
-      padding: 15px;
-      font-weight: 600;
+    #weddingInput {
+      padding: 10px 15px;
       font-size: 1.1rem;
-      background: #fff0f6;
-      scroll-behavior: smooth;
+      border-radius: 12px;
+      border: 2px solid #ff3366;
+      width: 250px;
+      margin-top: 10px;
+      text-align: center;
     }
 
-    .wedding-date::-webkit-scrollbar {
-      width: 8px;
-    }
-
-    .wedding-date::-webkit-scrollbar-thumb {
-      background-color: #ff3366;
-      border-radius: 10px;
+    #weddingMsg {
+      margin-top: 15px;
+      font-weight: 600;
+      color: #ff3366;
     }
 
     #teaseMsg {
@@ -131,7 +124,6 @@
       height: 100%;
       z-index: 9999;
     }
-
   </style>
 </head>
 <body>
@@ -140,27 +132,14 @@
   <div class="valentine">💖 Happy Valentine’s Day! 💖</div>
   <p>Welcome to the official website where you admit your husband is awesome.</p>
 
+  <!-- Wedding Date Input Card -->
   <div class="card">
-    <h2>Wedding Date 🎉 (Scroll Me!)</h2>
-    <div class="wedding-date" id="weddingDate">
-      <p>Jan 1, 2024</p>
-      <p>Feb 5, 2024</p>
-      <p>Mar 10, 2024</p>
-      <p>Apr 15, 2024</p>
-      <p>May 20, 2024</p>
-      <p>Jun 25, 2024</p>
-      <p>Jul 30, 2024</p>
-      <p>Aug 3, 2024</p>
-      <p>Sep 8, 2024</p>
-      <p>Oct 12, 2024</p>
-      <p><strong>Jan 10, 2025 - Our Wedding Day 💍</strong></p>
-      <p>Feb 14, 2025</p>
-      <p>Mar 18, 2025</p>
-      <p>Apr 22, 2025</p>
-      <p>May 27, 2025</p>
-    </div>
+    <h2>Enter Our Wedding Date 🎉</h2>
+    <input type="text" id="weddingInput" placeholder="Type here..." />
+    <div id="weddingMsg"></div>
   </div>
 
+  <!-- Team CAL / Olive Card -->
   <div class="card">
     <h2>Important Question 😏</h2>
     <p>Team CAL or Team Olive?</p>
@@ -172,6 +151,7 @@
     <p id="teaseMsg"></p>
   </div>
 
+  <!-- Why You’re Stuck With Me -->
   <div class="card">
     <h2>Why You’re Stuck With Me 😌</h2>
     <p>✔ Loyal</p>
@@ -180,12 +160,11 @@
     <p>✔ Occasionally annoying (for balance)</p>
   </div>
 
+  <!-- Real Talk -->
   <div class="card">
     <h2>Real Talk 🥹</h2>
     <p>
-      I tease you because I’m comfortable with you.<br />
-      I love you because you’re my person.<br />
-      Life with you is my favorite thing.
+      Hello pinjani kunjani wife. Happy valentines day seekram cal kootitu come paramakudi miisssss youuuuu love youuuuuu (madhampatti style). Ummmaaaaaaaaa
     </p>
   </div>
 
@@ -238,21 +217,23 @@
       if (pieces.length > 0) requestAnimationFrame(updateConfetti);
     }
 
-    // Wedding date scroll auto (slow loop)
-    const weddingDateDiv = document.getElementById('weddingDate');
-    let scrollPos = 0;
-    let direction = 1;
+    // Wedding date input logic
+    const weddingInput = document.getElementById('weddingInput');
+    const weddingMsg = document.getElementById('weddingMsg');
 
-    function autoScroll() {
-      scrollPos += direction * 0.3;
-      if (scrollPos > weddingDateDiv.scrollHeight - weddingDateDiv.clientHeight) direction = -1;
-      else if (scrollPos <= 0) direction = 1;
-      weddingDateDiv.scrollTop = scrollPos;
-      requestAnimationFrame(autoScroll);
-    }
-    autoScroll();
+    weddingInput.addEventListener('keyup', (e) => {
+      if(e.key === 'Enter') {
+        if (weddingInput.value.trim().toLowerCase() === 'january 10 2025') {
+          weddingMsg.textContent = 'Congrats More chikk chikkk waiting for you 🎉';
+          startConfetti();
+          weddingInput.disabled = true;
+        } else {
+          weddingMsg.textContent = 'Try again 😉';
+        }
+      }
+    });
 
-    // Button behaviors
+    // Team CAL / Olive logic
     const btnCal = document.getElementById('btnCal');
     const btnOlive = document.getElementById('btnOlive');
     const answer = document.getElementById('answer');
@@ -264,7 +245,6 @@
       startConfetti();
     });
 
-    // Make "Team Olive" button evade clicks
     btnOlive.addEventListener('mouseenter', () => {
       const x = Math.random() * 150 + 50;
       const y = Math.random() * 60 - 30;
@@ -276,6 +256,7 @@
       btnOlive.style.transform = 'translate(0, 0)';
       teaseMsg.textContent = '';
     });
+
   </script>
 </body>
 </html>
