@@ -2,195 +2,731 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Princy Annie 💖</title>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&display=swap"
-    rel="stylesheet"
-  />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JSONS SOFTWARE TRAINING AND PLACEMENTS</title>
   <style>
-    body {
-      font-family: 'Fredoka', sans-serif;
-      background: linear-gradient(135deg, #ffe6f0, #ffd6e8);
-      text-align: center;
-      padding: 40px;
-      color: #333;
-      overflow-x: hidden;
-      margin: 0;
-      min-height: 100vh;
+    /* =============================================
+       EASY CUSTOMIZATION — Edit values in this
+       :root block to change colors site-wide
+    ============================================= */
+    :root {
+      --primary:   #f58a4c;   /* Navy — main brand color */
+      --accent:    #3809b0;   /* Gold — highlights & badges */
+      --light-bg:  #f4f8fc;   /* Page background */
+      --card-bg:   #ffffff;
+      --text:      #010912;
+      --muted:     #5a7a99;
+      --border:    #d0dde8;
+      --green:     #1a7a45;
+      --green-bg:  #e8f4ee;
+      --red:       #a32d2d;
+      --red-bg:    #fceaea;
     }
 
-    h1 { font-size: 3rem; animation: floatIn 1.2s ease; margin-bottom: 10px; color: #e60073; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
-    .valentine { font-size: 2rem; color: #ff3366; margin-bottom: 30px; animation: heartsFloat 3s ease infinite; }
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: var(--light-bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
 
-    p { animation: fadeIn 1.5s ease; margin: 8px 0; }
+    /* =============================================
+       NAVIGATION
+    ============================================= */
+    nav {
+      background: var(--primary);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 0 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 60px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+    }
 
-    .card { background: rgba(255,255,255,0.9); padding: 30px; border-radius: 20px; max-width: 600px; margin: 30px auto; box-shadow: 0 10px 25px rgba(0,0,0,0.1); animation: popUp 0.8s ease; position: relative; }
+    /* ── EDIT: Your coaching class name ── */
+    .nav-logo {
+      color: #fff;
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-decoration: none;
+    }
 
-    input[type="text"] { padding: 10px; font-size: 1.1rem; border-radius: 12px; border: 2px solid #ff3366; width: 60px; margin: 0 5px; text-align: center; }
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+    }
 
-    #weddingSubmit { background: #ff3366; color: white; border: none; padding: 10px 20px; border-radius: 12px; cursor: pointer; margin-top: 10px; font-size: 1rem; }
+    .nav-links a {
+      color: #b8d0e8;
+      text-decoration: none;
+      font-size: 14px;
+      transition: color 0.2s;
+    }
 
-    #weddingMsg { margin-top: 15px; font-weight: 600; color: #ff3366; }
+    .nav-links a:hover { color: #fff; }
 
-    #teaseMsg { color: #ff3366; font-weight: 600; margin-top: 15px; font-style: italic; min-height: 30px; }
+    .nav-social {
+      display: flex;
+      gap: 10px;
+    }
 
-    @keyframes popUp { from { transform: scale(0.8); opacity: 0; } to { transform: scale(1); opacity: 1; } }
-    @keyframes floatIn { from { transform: translateY(-20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
-    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-    @keyframes heartsFloat { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+    .social-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      text-decoration: none;
+      font-size: 18px;
+      transition: opacity 0.2s, transform 0.15s;
+    }
 
-    .confetti { position: fixed; top: 0; left: 0; pointer-events: none; width: 100%; height: 100%; z-index: 9999; }
+    .social-icon:hover { opacity: 0.85; transform: scale(1.08); }
+    .social-icon.ig { background: #e1306c; }
+    .social-icon.wa { background: #25d366; }
+
+    /* =============================================
+       HERO
+    ============================================= */
+    .hero {
+      background: var(--primary);
+      padding: 60px 32px;
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    .hero-text { flex: 1; min-width: 240px; color: #fff; }
+
+    /* ── EDIT: Main hero headline ── */
+    .hero-text h1 {
+      font-size: 32px;
+      font-weight: 700;
+      line-height: 1.25;
+      margin-bottom: 14px;
+    }
+
+    /* ── EDIT: Hero subheading ── */
+    .hero-text p {
+      font-size: 16px;
+      color: #010912;
+      margin-bottom: 22px;
+      max-width: 480px;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: var(--accent);
+      color: #fff;
+      padding: 8px 20px;
+      border-radius: 24px;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .hero-photo {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      border: 5px solid rgba(255,255,255,0.25);
+      object-fit: cover;
+      background: #2d5a8a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 64px;
+      flex-shrink: 0;
+    }
+
+    /* =============================================
+       SECTION WRAPPER
+    ============================================= */
+    section {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 56px 32px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .section-eyebrow {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+
+    .section-title {
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 20px;
+    }
+
+    /* =============================================
+       ABOUT
+    ============================================= */
+
+    /* ── EDIT: Your bio text ── */
+    .about-bio {
+      font-size: 15px;
+      color: #010912;
+      max-width: 680px;
+      margin-bottom: 28px;
+    }
+
+    .about-stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 14px;
+    }
+
+    .stat-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 18px;
+      text-align: center;
+    }
+
+    /* ── EDIT: Change stat numbers ── */
+    .stat-card .num {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .stat-card .lbl {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+
+    /* =============================================
+       GALLERY
+    ============================================= */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 12px;
+    }
+
+    .gallery-item {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      aspect-ratio: 1;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* ── EDIT: Replace src with your image paths ── */
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Placeholder for images not yet uploaded */
+    .gallery-placeholder {
+      font-size: 13px;
+      color: var(--muted);
+      text-align: center;
+      padding: 16px;
+    }
+
+    /* =============================================
+       COURSES
+    ============================================= */
+    .courses-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 16px;
+    }
+
+    .course-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 20px;
+      transition: box-shadow 0.2s;
+    }
+
+    .course-card:hover { box-shadow: 0 4px 16px rgba(26,58,92,0.1); }
+
+    .course-emoji {
+      font-size: 32px;
+      margin-bottom: 12px;
+    }
+
+    /* ── EDIT: Course names ── */
+    .course-card h3 {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 6px;
+    }
+
+    .course-card p {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+
+    .course-badge {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 4px 12px;
+      border-radius: 12px;
+      background: var(--green-bg);
+      color: var(--green);
+    }
+
+    .course-badge.new { background: #fff4e0; color: #a06000; }
+    .course-badge.full { background: #fceaea; color: var(--red); }
+
+    /* =============================================
+       CERTIFICATE VERIFY
+    ============================================= */
+    .cert-box {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 28px;
+      max-width: 560px;
+    }
+
+    .cert-box p {
+      font-size: 14px;
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    .cert-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .cert-row input {
+      flex: 1;
+      min-width: 180px;
+      padding: 10px 14px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-size: 14px;
+      color: var(--text);
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .cert-row input:focus { border-color: var(--primary); }
+
+    .cert-row button {
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 10px 22px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+
+    .cert-row button:hover { opacity: 0.88; }
+
+    .cert-result {
+      margin-top: 14px;
+      padding: 12px 16px;
+      border-radius: 8px;
+      font-size: 14px;
+      display: none;
+    }
+
+    .cert-result.valid {
+      background: var(--green-bg);
+      color: var(--green);
+      border: 1px solid #9ed4b4;
+      display: block;
+    }
+
+    .cert-result.invalid {
+      background: var(--red-bg);
+      color: var(--red);
+      border: 1px solid #f0a0a0;
+      display: block;
+    }
+
+    /* =============================================
+       FOOTER
+    ============================================= */
+    footer {
+      background: var(--primary);
+      color: #010912;
+      padding: 48px 32px 28px;
+    }
+
+    .footer-inner {
+      max-width: 960px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 32px;
+      margin-bottom: 32px;
+    }
+
+    footer h3 {
+      color: #fff;
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    /* ── EDIT: Address, phone, email ── */
+    .footer-address p { font-size: 14px; line-height: 1.9; }
+
+    .footer-social-group { display: flex; gap: 12px; margin-top: 4px; }
+
+    .footer-social-group .social-icon {
+      width: 40px;
+      height: 40px;
+      font-size: 20px;
+    }
+
+    .footer-bottom {
+      max-width: 960px;
+      margin: 0 auto;
+      border-top: 1px solid rgba(255,255,255,0.12);
+      padding-top: 20px;
+      font-size: 12px;
+      text-align: center;
+      color: #010912;
+    }
+
+    /* =============================================
+       RESPONSIVE
+    ============================================= */
+    @media (max-width: 600px) {
+      .hero { padding: 40px 20px; }
+      .hero-text h1 { font-size: 24px; }
+      section { padding: 40px 20px; }
+      nav { padding: 0 16px; }
+      .nav-links { display: none; }
+    }
   </style>
 </head>
 <body>
 
-<h1>Hi Princy Annie 💘</h1>
-<div class="valentine">💖 Happy Valentine’s Day! 💖</div>
-<p>Welcome to the official website where you admit your husband is awesome.</p>
+  <!-- ============================================
+       NAVIGATION
+       EDIT: class name, Instagram/WhatsApp links
+  ============================================= -->
+  <nav>
+    <a href="#" class="nav-logo">✦ JSONS SOFTWARE TRAINING AND PLACEMENTS</a>
 
-<!-- Wedding Date Input Card -->
-<div class="card">
-  <h2>Enter Our Wedding Date 🎉</h2>
-  <input type="text" id="day" placeholder="DD" maxlength="2" />
-  <input type="text" id="month" placeholder="MM" maxlength="2" />
-  <input type="text" id="year" placeholder="YYYY" maxlength="4" />
-  <br>
-  <button id="weddingSubmit">Submit</button>
-  <div id="weddingMsg"></div>
-</div>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#courses">Courses</a></li>
+      <li><a href="#verify">Verify</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
 
-<!-- Team CAL / Olive Card -->
-<div class="card">
-  <h2>Important Question 😏</h2>
-  <p>Team CAL or Team Olive?</p>
+    <div class="nav-social">
+      <!-- EDIT: Replace YOUR_INSTAGRAM with your Instagram username -->
+      <a href="https://www.instagram.com/jsonssoftware?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+         target="_blank" rel="noopener"
+         class="social-icon ig"
+         aria-label="Instagram">&#xe626;</a>
 
-  <button id="btnCal">Team CAL</button>
-  <button id="btnOlive" class="no">Team Olive</button>
+      <!-- EDIT: Replace 919159926299 with your WhatsApp number (country code + number, no +) -->
+      <a href="https://wa.me/919159926299"
+         target="_blank" rel="noopener"
+         class="social-icon wa"
+         aria-label="WhatsApp">&#xf232;</a>
+    </div>
+  </nav>
 
-  <p id="answer"></p>
-  <p id="teaseMsg"></p>
-</div>
 
-<!-- Why You’re Stuck With Me -->
-<div class="card">
-  <h2>Why You’re Stuck With Me 😌</h2>
-  <p>✔ Im Good boy</p>
-  <p>✔ Loves you an unreasonable amount</p>
-  <p>✔ I am your Hubby</p>
-  <p>✔ Occasionally annoying (for balance)</p>
-</div>
+  <!-- ============================================
+       HERO
+       EDIT: Headline, subtext, badge, photo
+  ============================================= -->
+  <div class="hero">
+    <div class="hero-text">
+      <!-- EDIT: Main headline -->
+      <h1>Empowering Students to Reach Their Full Potential</h1>
 
-<!-- Real Talk -->
-<div class="card">
-  <h2>Romba mukkiyam!</h2>
-  <p>
-    Hiii Pondattiiii. Happy valentines day seekram cal kootitu paramakudi vandhuru... miisssss youuuuu.....love youuuuuu (madhampatti style). Ummmaaaaaaaaa
-  </p>
-</div>
+      <!-- EDIT: Subtext -->
+      <p>Quality coaching, proven results, and a community built on growth.
+         Join hundreds of students who've transformed their academic journey.</p>
 
-<canvas class="confetti" id="confetti"></canvas>
+      <!-- EDIT: Badge text -->
+      <span class="hero-badge">🏆 Trusted by 500+ Students</span>
+    </div>
 
-<script>
-  // Confetti setup
-  const canvas = document.getElementById('confetti');
-  const ctx = canvas.getContext('2d');
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
+    <!-- EDIT: Replace the emoji with an <img> tag pointing to your photo
+         Example: <img src="images/photo.jpg" alt="Your Name" class="hero-photo" />
+    -->
+    <div class="hero-photo">👩‍🏫</div>
+  </div>
 
-  let pieces = [];
 
-  function startConfetti() {
-    pieces = Array.from({ length: 150 }).map(() => ({
-      x: Math.random() * canvas.width,
-      y: Math.random() * canvas.height,
-      r: Math.random() * 6 + 2,
-      d: Math.random() * 10,
-      color: `hsl(${Math.random() * 360}, 100%, 70%)`,
-      tilt: Math.random() * 10,
-      tiltAngle: 0,
-      tiltAngleIncrement: Math.random() * 0.1 + 0.05,
-    }));
-    requestAnimationFrame(updateConfetti);
-    setTimeout(() => { pieces = []; }, 5000);
-  }
+  <!-- ============================================
+       ABOUT JSONS
+  ============================================= -->
+  <section id="about">
+    <p class="section-eyebrow">Who we are</p>
+    <h2 class="section-title">About JSONS</h2>
 
-  function updateConfetti() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    pieces.forEach(p => {
-      p.tiltAngle += p.tiltAngleIncrement;
-      p.y += p.d;
-      p.x += Math.sin(p.tiltAngle) * 2;
-      p.tilt = Math.sin(p.tiltAngle) * 15;
+    <!-- EDIT: Your full bio -->
+    <p class="about-bio">
+      We <strong>JSONS</strong> offers industry-recognized IT & Non-ITcertification courses from basic to advanced levels.
+      Learn through hands-on practical training, real-time projects, and expert guidance from industry professionals.
+      Join Paramakudi's leading computer training academy and build a successful career.
+    </p>
 
-      ctx.beginPath();
-      ctx.moveTo(p.x + p.tilt + p.r / 2, p.y);
-      ctx.lineTo(p.x + p.tilt, p.y + p.r / 2);
-      ctx.lineTo(p.x + p.tilt - p.r / 2, p.y);
-      ctx.lineTo(p.x + p.tilt, p.y - p.r / 2);
-      ctx.closePath();
-      ctx.fillStyle = p.color;
-      ctx.fill();
+    <div class="about-stats">
+      <!-- EDIT: Change numbers and labels as needed -->
+      <div class="stat-card">
+        <div class="num">10+</div>
+        <div class="lbl">Years of experience</div>
+      </div>
+      <div class="stat-card">
+        <div class="num">500+</div>
+        <div class="lbl">Students coached</div>
+      </div>
+      <div class="stat-card">
+        <div class="num">12+</div>
+        <div class="lbl">Courses offered</div>
+      </div>
+      <div class="stat-card">
+        <div class="num">100%</div>
+        <div class="lbl">placement Assistance</div>
+      </div>
+    </div>
+  </section>
 
-      if (p.y > canvas.height) p.y = 0;
-      if (p.x > canvas.width) p.x = 0;
-    });
-    if (pieces.length > 0) requestAnimationFrame(updateConfetti);
-  }
 
-  // Wedding date submit logic
-  const dayInput = document.getElementById('day');
-  const monthInput = document.getElementById('month');
-  const yearInput = document.getElementById('year');
-  const submitBtn = document.getElementById('weddingSubmit');
-  const weddingMsg = document.getElementById('weddingMsg');
+  <!-- ============================================
+       GALLERY
+       EDIT: Replace placeholder divs with real
+       <img src="your-image.jpg" alt="..." /> tags
+  ============================================= -->
+  <section id="gallery">
+    <p class="section-eyebrow">Moments</p>
+    <h2 class="section-title">Gallery</h2>
 
-  submitBtn.addEventListener('click', () => {
-    const day = dayInput.value.trim();
-    const month = monthInput.value.trim();
-    const year = yearInput.value.trim();
+    <div class="gallery-grid">
 
-    if(day === '10' && month === '01' && year === '2025') {
-      weddingMsg.textContent = 'Congrats More chikk chikkk waiting for you 🎉';
-      startConfetti();
-      dayInput.disabled = monthInput.disabled = yearInput.disabled = true;
-      submitBtn.disabled = true;
-    } else {
-      weddingMsg.textContent = 'Try again 😉';
+      <!-- EDIT: Replace each block with your photo -->
+      <!-- Example: <div class="gallery-item"><img src="images/batch2024.jpg" alt="Batch 2024" /></div> -->
+
+      <div class="gallery-item">
+        <div class="gallery-placeholder">📚<br>Class photo</div>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-placeholder">🎓<br>Graduation</div>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-placeholder">🏅<br>Award ceremony</div>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-placeholder">👥<br>Batch photo</div>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-placeholder">📝<br>Workshop</div>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-placeholder">🎉<br>Event</div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ============================================
+       COURSES
+       EDIT: Add / remove course cards as needed
+  ============================================= -->
+  <section id="courses">
+    <p class="section-eyebrow">What we teach</p>
+    <h2 class="section-title">Courses Offered</h2>
+
+    <div class="courses-grid">
+
+      <!-- Course card template:
+           Copy this block and paste to add more courses.
+           Badge classes: (default green) | class="new" | class="full"
+      -->
+      <div class="course-card">
+        <div class="course-emoji">🔢</div>
+        <!-- EDIT: Subject name -->
+        <h3>Mathematics</h3>
+        <!-- EDIT: Description / grades / timing -->
+        <p>Classes 6–12 · Board + competitive exam prep<br>Mon / Wed / Fri — 5:00 PM</p>
+        <!-- EDIT: Badge text and status -->
+        <span class="course-badge">Enrolling now</span>
+      </div>
+
+      <div class="course-card">
+        <div class="course-emoji">⚗️</div>
+        <h3>Science</h3>
+        <p>Physics, Chemistry, Biology · All boards<br>Tue / Thu / Sat — 5:00 PM</p>
+        <span class="course-badge">Enrolling now</span>
+      </div>
+
+      <div class="course-card">
+        <div class="course-emoji">💻</div>
+        <h3>Computer Science</h3>
+        <p>Programming, theory · CBSE / State board<br>Mon / Wed — 6:30 PM</p>
+        <span class="course-badge new">New batch</span>
+      </div>
+
+      <div class="course-card">
+        <div class="course-emoji">📖</div>
+        <h3>English & Communication</h3>
+        <p>Grammar, essay writing, spoken English<br>Sat / Sun — 10:00 AM</p>
+        <span class="course-badge">Enrolling now</span>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ============================================
+       CERTIFICATE VERIFICATION
+  ============================================= -->
+  <section id="verify">
+    <p class="section-eyebrow">Authenticate</p>
+    <h2 class="section-title">Verify Certificate</h2>
+
+    <div class="cert-box">
+      <p>
+        Enter the certificate number printed on your document to confirm its
+        authenticity. Certificate numbers follow the format: <strong>EDU-YYYY-NNNNN</strong>
+      </p>
+
+      <div class="cert-row">
+        <input
+          type="text"
+          id="certInput"
+          placeholder="e.g. EDU-2025-00123"
+          aria-label="Certificate number"
+        />
+        <button onclick="verifyCert()">Verify</button>
+      </div>
+
+      <div class="cert-result" id="certResult" role="alert"></div>
+    </div>
+  </section>
+
+
+  <!-- ============================================
+       FOOTER / CONTACT
+       EDIT: Address, phone, email, social links
+  ============================================= -->
+  <footer id="contact">
+    <div class="footer-inner">
+
+      <div class="footer-address">
+        <!-- EDIT: Coaching class name -->
+        <h3>JSONS SOFTWARE TRAINING AND PLACEMENTS</h3>
+        <p>
+          <!-- EDIT: Full address -->
+          📍 1st Floor, JSONS software Training and placements<br>
+          Near Shalom ITI, Paramakudi, Tamil Nadu – 623707<br><br>
+          <!-- EDIT: Phone number -->
+          📞 +91 91599 26299<br>
+          <!-- EDIT: Email -->
+          📧 info@youremail.com
+        </p>
+      </div>
+
+      <div>
+        <h3>Follow &amp; Contact Us</h3>
+        <div class="footer-social-group">
+          <!-- EDIT: Same Instagram & WhatsApp links as nav -->
+          <a href="https://instagram.com/YOUR_INSTAGRAM"
+             target="_blank" rel="noopener"
+             class="social-icon ig"
+             aria-label="Instagram">&#xe626;</a>
+
+          <a href="https://wa.me/919159926299"
+             target="_blank" rel="noopener"
+             class="social-icon wa"
+             aria-label="WhatsApp">&#xf232;</a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <!-- EDIT: Your class name and year -->
+      © 2026 JSONS SOFTWARE TRAINING AND PLACEMENTS. All rights reserved.
+    </div>
+  </footer>
+
+
+  <!-- ============================================
+       CERTIFICATE VERIFICATION LOGIC
+       EDIT: Add your real certificate numbers
+       to the validCerts array below.
+  ============================================= -->
+  <script>
+    // ── EDIT: Add your issued certificate numbers here ──
+    const validCerts = [
+      "EDU-2024-00001",
+      "EDU-2024-00002",
+      "EDU-2025-00001",
+      "EDU-2025-00002",
+      // Add more: "EDU-2025-00003",
+    ];
+
+    function verifyCert() {
+      const input = document.getElementById("certInput").value.trim().toUpperCase();
+      const result = document.getElementById("certResult");
+
+      if (!input) {
+        result.className = "cert-result invalid";
+        result.textContent = "Please enter a certificate number.";
+        return;
+      }
+
+      if (validCerts.includes(input)) {
+        result.className = "cert-result valid";
+        result.textContent =
+          "✅ Certificate " + input + " is valid — issued by EdJSONS SOFTWARE TRAINING AND PLACEMENTS.";
+      } else {
+        result.className = "cert-result invalid";
+        result.textContent =
+          "❌ Certificate number not found. Please check and try again, or contact us directly.";
+      }
     }
-  });
 
-  // Team CAL / Olive logic
-  const btnCal = document.getElementById('btnCal');
-  const btnOlive = document.getElementById('btnOlive');
-  const answer = document.getElementById('answer');
-  const teaseMsg = document.getElementById('teaseMsg');
+    // Allow pressing Enter in the input field
+    document.getElementById("certInput").addEventListener("keydown", function(e) {
+      if (e.key === "Enter") verifyCert();
+    });
+  </script>
 
-  btnCal.addEventListener('click', () => {
-    answer.textContent = 'Ippo CAL .. 14 innum iruku 😎🔥';
-    teaseMsg.textContent = 'Wise choice, my queen! No contest here.';
-    startConfetti();
-  });
-
-  function moveOliveButton() {
-    const x = Math.random() * 150 + 50;
-    const y = Math.random() * 60 - 30;
-    btnOlive.style.transform = `translate(${x}px, ${y}px)`;
-    teaseMsg.textContent = "Olive venuma diiii? You know where your heart is 😉";
-  }
-
-  // Desktop hover
-  btnOlive.addEventListener('mouseenter', moveOliveButton);
-  btnOlive.addEventListener('mouseleave', () => {
-    btnOlive.style.transform = 'translate(0, 0)';
-    teaseMsg.textContent = '';
-  });
-
-  // Mobile tap
-  btnOlive.addEventListener('touchstart', (e) => {
-    e.preventDefault(); // prevent accidental click
-    moveOliveButton();
-  });
-</script>
 </body>
 </html>
