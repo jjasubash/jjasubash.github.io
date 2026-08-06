@@ -9,23 +9,20 @@
        EASY CUSTOMIZATION — Colors based on logo
     ============================================= */
     :root {
-      /* Main brand colors from logo */
-      --primary:   #000080;   /* Dark Blue — nav, hero bg, footer bg */
-      --accent:    #e31d2b;   /* Red — highlights, badges */
-      --skyblue:   #00bfff;   /* Sky Blue — page background */
-      
-      /* Standardized text colors */
+      --primary:   #1a3a5c;   /* Dark Blue — nav, hero bg, footer bg */
+      --accent:    #e03131;   /* Red — highlights, badges */
+      --skyblue:   #d0e7f9;   /* Sky Blue — page background */
+
       --text:      #000000;   /* Black on light bg */
       --white:     #ffffff;   /* White on dark bg */
-      
-      --card-bg:   #ffffff;   /* Pure white cards */
-      
-      /* Status/utility colors (retained but adapted) */
-      --muted:     #5a7a99;   /* Can keep for subtle borders/text */
+
+      --card-bg:   #ffffff;
+
+      --muted:     #5a7a99;
       --border:    #d0dde8;
       --green:     #1a7a45;
       --green-bg:  #e8f4ee;
-      --red-status:#a32d2d; /* renamed to avoid conflict */
+      --red-status:#a32d2d;
       --red-status-bg:#fceaea;
     }
 
@@ -38,11 +35,8 @@
       line-height: 1.7;
     }
 
-    /* =============================================
-       NAVIGATION (Now Dark Blue bg)
-    ============================================= */
     nav {
-      background: var(--primary); /* Dark Blue */
+      background: var(--primary);
       position: sticky;
       top: 0;
       z-index: 100;
@@ -55,7 +49,7 @@
     }
 
     .nav-logo {
-      color: var(--white); /* White text on Dark Blue bg */
+      color: var(--white);
       font-size: 20px;
       font-weight: 700;
       letter-spacing: 0.5px;
@@ -69,13 +63,13 @@
     }
 
     .nav-links a {
-      color: var(--white); /* White text on Dark Blue bg */
+      color: var(--white);
       text-decoration: none;
       font-size: 14px;
       transition: color 0.2s;
     }
 
-    .nav-links a:hover { color: var(--skyblue); } /* Highlight on hover */
+    .nav-links a:hover { color: var(--skyblue); }
 
     .nav-social {
       display: flex;
@@ -100,11 +94,8 @@
     .social-icon.ig { background: #e1306c; }
     .social-icon.wa { background: #25d366; }
 
-    /* =============================================
-       HERO (Now Dark Blue bg)
-    ============================================= */
     .hero {
-      background: var(--primary); /* Dark Blue */
+      background: var(--primary);
       padding: 60px 32px;
       display: flex;
       align-items: center;
@@ -112,7 +103,7 @@
       flex-wrap: wrap;
     }
 
-    .hero-text { flex: 1; min-width: 240px; color: var(--white); } /* White text on Dark Blue bg */
+    .hero-text { flex: 1; min-width: 240px; color: var(--white); }
 
     .hero-text h1 {
       font-size: 32px;
@@ -123,14 +114,14 @@
 
     .hero-text p {
       font-size: 16px;
-      color: var(--white); /* White text on Dark Blue bg */
+      color: var(--white);
       margin-bottom: 22px;
       max-width: 480px;
     }
 
     .hero-badge {
       display: inline-block;
-      background: var(--accent); /* Red badge */
+      background: var(--accent);
       color: var(--white);
       padding: 8px 20px;
       border-radius: 24px;
@@ -143,23 +134,25 @@
       height: 160px;
       border-radius: 50%;
       border: 5px solid rgba(255,255,255,0.25);
-      object-fit: contain; /* logo in circle */
-      background: #2d5a8a;
+      object-fit: contain;
+      background: #ffffff;
       display: flex;
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
-      overflow: hidden; /* ensures the rectangle logo fits the circle */
+      overflow: hidden;
     }
 
-    /* =============================================
-       SECTION WRAPPER
-    ============================================= */
+    .hero-photo img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 50%;
+    }
+
     section {
       max-width: 960px;
       margin: 0 auto;
       padding: 56px 32px;
-      /* Border removed and padding adjusted since pages flow better without section borders */
     }
 
     .section-eyebrow {
@@ -167,22 +160,22 @@
       font-weight: 700;
       letter-spacing: 2px;
       text-transform: uppercase;
-      color: var(--accent); /* Red eyebrow */
+      color: var(--accent);
       margin-bottom: 6px;
     }
 
     .section-title {
       font-size: 26px;
       font-weight: 700;
-      color: var(--primary); /* Dark Blue titles */
+      color: var(--primary);
       margin-bottom: 20px;
     }
 
-    /* =============================================
-       ABOUT (Skyblue bg, black text)
-    ============================================= */
-    #about .about-bio {
-      color: var(--text); /* Black text */
+    .about-bio {
+      font-size: 15px;
+      color: var(--text);
+      max-width: 680px;
+      margin-bottom: 28px;
     }
 
     .about-stats {
@@ -202,7 +195,7 @@
     .stat-card .num {
       font-size: 28px;
       font-weight: 700;
-      color: var(--primary); /* Dark Blue stats */
+      color: var(--primary);
     }
 
     .stat-card .lbl {
@@ -211,14 +204,6 @@
       margin-top: 4px;
     }
 
-    /* =============================================
-       GALLERY - REMOVED from CSS and HTML content
-    ============================================= */
-    /* ... gallery CSS removed ... */
-
-    /* =============================================
-       COURSES (Skyblue bg, black text)
-    ============================================= */
     .courses-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
@@ -243,13 +228,13 @@
     .course-card h3 {
       font-size: 17px;
       font-weight: 700;
-      color: var(--primary); /* Dark Blue course names */
+      color: var(--primary);
       margin-bottom: 6px;
     }
 
     .course-card p {
       font-size: 13px;
-      color: var(--text); /* Black text */
+      color: var(--text);
       margin-bottom: 14px;
     }
 
@@ -266,9 +251,6 @@
     .course-badge.new { background: #fff4e0; color: #a06000; }
     .course-badge.full { background: #fceaea; color: var(--red-status); }
 
-    /* =============================================
-       CERTIFICATE VERIFY (Skyblue bg, black text)
-    ============================================= */
     .cert-box {
       background: var(--card-bg);
       border: 1px solid var(--border);
@@ -279,7 +261,7 @@
 
     .cert-box p {
       font-size: 14px;
-      color: var(--text); /* Black text */
+      color: var(--text);
       margin-bottom: 16px;
     }
 
@@ -304,7 +286,7 @@
     .cert-row input:focus { border-color: var(--primary); }
 
     .cert-row button {
-      background: var(--accent); /* Red verify button */
+      background: var(--accent);
       color: var(--white);
       border: none;
       border-radius: 8px;
@@ -339,12 +321,9 @@
       display: block;
     }
 
-    /* =============================================
-       FOOTER (Now Dark Blue bg)
-    ============================================= */
     footer {
-      background: var(--primary); /* Dark Blue */
-      color: var(--white); /* White text on Dark Blue bg */
+      background: var(--primary);
+      color: var(--white);
       padding: 48px 32px 28px;
     }
 
@@ -359,7 +338,7 @@
     }
 
     footer h3 {
-      color: var(--white); /* White text on Dark Blue bg */
+      color: var(--white);
       font-size: 16px;
       font-weight: 700;
       margin-bottom: 10px;
@@ -382,12 +361,9 @@
       padding-top: 20px;
       font-size: 12px;
       text-align: center;
-      color: var(--white); /* White text */
+      color: var(--white);
     }
 
-    /* =============================================
-       RESPONSIVE
-    ============================================= */
     @media (max-width: 600px) {
       .hero { padding: 40px 20px; }
       .hero-text h1 { font-size: 24px; }
@@ -401,502 +377,60 @@
 
   <!-- ============================================
        NAVIGATION
-       EDIT: class name, Instagram/WhatsApp links
   ============================================= -->
   <nav>
     <a href="#" class="nav-logo">✦ Welcome Learners ✦</a>
 
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
-      <!-- Gallery tab removed from main tab -->
       <li><a href="#courses">Courses</a></li>
       <li><a href="#verify">Verify</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
 
     <div class="nav-social">
-      <!-- EDIT: Replace YOUR_INSTAGRAM with your Instagram username -->
-<a href="https://www.instagram.com/jsonssoftware?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
-   target="_blank" rel="noopener"
-   class="social-icon ig"
-   aria-label="Instagram">
-  <svg width="20" height="20" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
-    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-  </svg>
-</a>
-
-<!-- WhatsApp -->
-<a href="https://wa.me/919159926299"
-   target="_blank" rel="noopener"
-   class="social-icon wa"
-   aria-label="WhatsApp">
-  <svg width="20" height="20" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
-    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-  </svg>
-</a>
+      <a href="https://www.instagram.com/jsonssoftware?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+         target="_blank" rel="noopener"
+         class="social-icon ig"
+         aria-label="Instagram">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+        </svg>
+      </a>
+      <a href="https://wa.me/919159926299"
+         target="_blank" rel="noopener"
+         class="social-icon wa"
+         aria-label="WhatsApp">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+      </a>
     </div>
   </nav>
 
-
   <!-- ============================================
        HERO
-       EDIT: Headline, subtext, badge, photo
   ============================================= -->
   <div class="hero">
     <div class="hero-text">
-      <!-- EDIT: Main headline -->
       <h1>JSONS ACADEMY</h1>
-
-      <!-- EDIT: Subtext -->
       <p>Quality coaching, proven results, and a community built on growth.
          Join hundreds of students who've transformed their academic journey.</p>
-
-      <!-- EDIT: Badge text -->
       <span class="hero-badge">🏆 Trusted by 500+ Students</span>
     </div>
 
-    <!-- CHANGE: Girl reading emoji replaced with Jsons academy logo -->
-    <div class="hero-photo"><img src="assets/image.png"  alt="Jsons academy" style="max-width: 90%; max-height: 90%; border-radius: 50%;" /></div>
+    <div class="hero-photo"><img src="assets/image.png" alt="Jsons academy" /></div>
   </div>
-
 
   <!-- ============================================
        ABOUT JSONS
   ============================================= -->
   <section id="about">
     <p class="section-eyebrow">Who we are</p>
-    <h2 class="section-title">About JSONS
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>JSONS ACADEMY</title>
-  <style>
-    /* =============================================
-       EASY CUSTOMIZATION — Colors site-wide
-       Themes: Dark blue Skyblue and red.
-       Black text on light bg, White text on dark bg.
-    ============================================= */
-    :root {
-      --primary:   #1a3a5c;   /* Dark Blue — for headings, accents on blue bg */
-      --accent:    #e03131;   /* Red — badges, icons */
-      --light-bg:  #d0e7f9;   /* Skyblue — Page background */
-      
-      /* Black text on light background (Skyblue) */
-      --text:      #010912;
-      /* For text inside dark blue containers, see specific classes below */
-
-      --card-bg:   #ffffff;   /* Keep cards white for readability */
-      
-      --muted:     #5a7a99;
-      --border:    #a7c1d1;   /* Adjusted border for skyblue bg */
-      --green:     #1a7a45;
-      --green-bg:  #e8f4ee;
-      --red-full:  #a32d2d;
-      --red-bg:    #fceaea;
-    }
-
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-
-    body {
-      font-family: 'Segoe UI', Arial, sans-serif;
-      background: var(--light-bg); /* Skyblue Page Background */
-      color: var(--text);          /* Black text default */
-      line-height: 1.7;
-    }
-
-    /* =============================================
-       NAVIGATION - Re-styled for dark blue bg, white text
-    ============================================= */
-    nav {
-      background: var(--primary); /* Dark Blue Nav Background */
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      padding: 0 32px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 60px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.25);
-    }
-
-    /* ── Logo is on Dark Blue bg, so text should be white ── */
-    .nav-logo {
-      color: #fff; /* White text on dark blue nav */
-      font-size: 20px;
-      font-weight: 700;
-      letter-spacing: 0.5px;
-      text-decoration: none;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 24px;
-      list-style: none;
-    }
-
-    /* ── Links are on Dark Blue bg, so text should be white ── */
-    .nav-links a {
-      color: #fff; /* White text on dark blue nav */
-      text-decoration: none;
-      font-size: 14px;
-      transition: color 0.2s;
-    }
-
-    .nav-links a:hover { color: var(--accent); } /* Hover color: Red */
-
-    .nav-social {
-      display: flex;
-      gap: 10px;
-    }
-
-    .social-icon {
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      border: none;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      text-decoration: none;
-      font-size: 18px;
-      transition: opacity 0.2s, transform 0.15s;
-    }
-
-    .social-icon:hover { opacity: 0.85; transform: scale(1.08); }
-    .social-icon.ig { background: #e1306c; }
-    .social-icon.wa { background: #25d366; }
-
-    /* =============================================
-       HERO - Re-styled for dark blue bg, white text
-    ============================================= */
-    .hero {
-      background: var(--primary); /* Dark Blue Hero Background */
-      padding: 60px 32px;
-      display: flex;
-      align-items: center;
-      gap: 40px;
-      flex-wrap: wrap;
-    }
-
-    /* ── Headings inside dark blue bg are white ── */
-    .hero-text { flex: 1; min-width: 240px; color: #fff; } /* White text container */
-
-    .hero-text h1 {
-      font-size: 32px;
-      font-weight: 700;
-      line-height: 1.25;
-      margin-bottom: 14px;
-      color: #fff; /* Explicit white heading */
-    }
-
-    .hero-text p {
-      font-size: 16px;
-      color: #fff; /* Explicit white paragraph on dark blue */
-      margin-bottom: 22px;
-      max-width: 480px;
-    }
-
-    .hero-badge {
-      display: inline-block;
-      background: var(--accent); /* Red badge on dark blue is okay for highlights */
-      color: #fff;
-      padding: 8px 20px;
-      border-radius: 24px;
-      font-size: 14px;
-      font-weight: 600;
-    }
-
-    .hero-photo {
-      width: 160px;
-      height: 160px;
-      border-radius: 50%;
-      border: 5px solid rgba(255,255,255,0.25);
-      object-fit: contain; /* logo should fit entirely in circle */
-      background: #ffffff; /* White background for the logo circle */
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      overflow: hidden; /* ensures the rectangle logo fits the circle */
-    }
-
-    /* =============================================
-       SECTION WRAPPER
-    ============================================= */
-    section {
-      max-width: 960px;
-      margin: 0 auto;
-      padding: 56px 32px;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .section-eyebrow {
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: var(--accent); /* Red eye brow on skyblue */
-      margin-bottom: 6px;
-    }
-
-    .section-title {
-      font-size: 26px;
-      font-weight: 700;
-      color: var(--primary); /* Dark Blue section title on skyblue */
-      margin-bottom: 20px;
-    }
-
-    /* =============================================
-       ABOUT (Skyblue bg, black text)
-    ============================================= */
-
-    .about-bio {
-      font-size: 15px;
-      color: var(--text); /* Black text from :root */
-      max-width: 680px;
-      margin-bottom: 28px;
-    }
-
-    .about-stats {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-      gap: 14px;
-    }
-
-    .stat-card {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 18px;
-      text-align: center;
-    }
-
-    .stat-card .num {
-      font-size: 28px;
-      font-weight: 700;
-      color: var(--primary); /* Dark Blue stat numbers */
-    }
-
-    .stat-card .lbl {
-      font-size: 12px;
-      color: var(--muted);
-      margin-top: 4px;
-    }
-
-    /* =============================================
-       GALLERY - SECTION REMOVED
-    ============================================= */
-    /* ... gallery grid CSS removed ... */
-
-    /* =============================================
-       COURSES (Skyblue bg, cards are white with black text)
-    ============================================= */
-    .courses-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-      gap: 16px;
-    }
-
-    .course-card {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 20px;
-      transition: box-shadow 0.2s;
-    }
-
-    .course-card:hover { box-shadow: 0 4px 16px rgba(26,58,92,0.1); }
-
-    .course-emoji {
-      font-size: 32px;
-      margin-bottom: 12px;
-    }
-
-    .course-card h3 {
-      font-size: 17px;
-      font-weight: 700;
-      color: var(--primary); /* Dark Blue heading within card */
-      margin-bottom: 6px;
-    }
-
-    .course-card p {
-      font-size: 13px;
-      color: var(--text); /* Black paragraph in card */
-      margin-bottom: 14px;
-    }
-
-    .course-badge {
-      display: inline-block;
-      font-size: 11px;
-      font-weight: 600;
-      padding: 4px 12px;
-      border-radius: 12px;
-      background: var(--green-bg);
-      color: var(--green);
-    }
-
-    .course-badge.new { background: #fff4e0; color: #a06000; }
-    .course-badge.full { background: #fceaea; color: var(--red-full); }
-
-    /* =============================================
-       CERTIFICATE VERIFY (Skyblue bg, card is white with black text)
-    ============================================= */
-    .cert-box {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 28px;
-      max-width: 560px;
-    }
-
-    .cert-box p {
-      font-size: 14px;
-      color: var(--text); /* Black text within card */
-      margin-bottom: 16px;
-    }
-
-    .cert-row {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-
-    .cert-row input {
-      flex: 1;
-      min-width: 180px;
-      padding: 10px 14px;
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      font-size: 14px;
-      color: var(--text);
-      outline: none;
-      transition: border-color 0.2s;
-    }
-
-    .cert-row input:focus { border-color: var(--primary); }
-
-    .cert-row button {
-      background: var(--primary); /* Dark Blue button on Skyblue/White bg */
-      color: #fff; /* White text on button */
-      border: none;
-      border-radius: 8px;
-      padding: 10px 22px;
-      font-size: 14px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: opacity 0.2s;
-    }
-
-    .cert-row button:hover { background-color: var(--accent); } /* Button changes to red on hover */
-
-    .cert-result {
-      margin-top: 14px;
-      padding: 12px 16px;
-      border-radius: 8px;
-      font-size: 14px;
-      display: none;
-    }
-
-    .cert-result.valid {
-      background: var(--green-bg);
-      color: var(--green);
-      border: 1px solid #9ed4b4;
-      display: block;
-    }
-
-    .cert-result.invalid {
-      background: var(--red-bg);
-      color: var(--red-full);
-      border: 1px solid #f0a0a0;
-      display: block;
-    }
-
-    /* =============================================
-       FOOTER - Re-styled for dark blue bg, white text
-    ============================================= */
-    footer {
-      background: var(--primary); /* Dark Blue Footer Background */
-      color: #fff;                  /* White text on dark blue footer */
-      padding: 48px 32px 28px;
-    }
-
-    .footer-inner {
-      max-width: 960px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 32px;
-      margin-bottom: 32px;
-    }
-
-    footer h3 {
-      color: #fff; /* White heading on dark footer */
-      font-size: 16px;
-      font-weight: 700;
-      margin-bottom: 10px;
-    }
-
-    .footer-address p { font-size: 14px; line-height: 1.9; color: #fff; } /* White text on dark footer */
-
-    .footer-social-group { display: flex; gap: 12px; margin-top: 4px; }
-
-    .footer-social-group .social-icon {
-      width: 40px;
-      height: 40px;
-      font-size: 20px;
-    }
-
-    .footer-bottom {
-      max-width: 960px;
-      margin: 0 auto;
-      border-top: 1px solid rgba(255,255,255,0.12);
-      padding-top: 20px;
-      font-size: 12px;
-      text-align: center;
-      color: #fff; /* White text bottom footer */
-    }
-
-    /* =============================================
-       RESPONSIVE
-    ============================================= */
-    @media (max-width: 600px) {
-      .hero { padding: 40px 20px; }
-      .hero-text h1 { font-size: 24px; }
-      section { padding: 40px 20px; }
-      nav { padding: 0 16px; }
-      .nav-links { display: none; }
-    }
-  </style>
-</head>
-<body>
-
-  <!-- ============================================
-       NAVIGATION
-       EDIT: Instagram/WhatsApp links
-  ============================================= -->
-
-
-    <ul class="nav-links">
-      <li><a href="#about">About</a></li>
-      <!-- Gallery section removed from navigation main tab -->
-      <li><a href="#courses">Courses</a></li>
-      <li><a href="#verify">Verify</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-
-
-  <!-- ============================================
-       ABOUT JSONS (Skyblue bg, Black text)
-  ============================================= -->
-
+    <h2 class="section-title">About JSONS</h2>
 
     <p class="about-bio">
-      We <strong>JSONS</strong> offers industry-recognized IT & Non-ITcertification courses from basic to advanced levels.
+      We <strong>JSONS</strong> offers industry-recognized IT & Non-IT certification courses from basic to advanced levels.
       Learn through hands-on practical training, real-time projects, and expert guidance from industry professionals.
       Join Paramakudi's leading computer training academy and build a successful career.
     </p>
@@ -921,15 +455,8 @@
     </div>
   </section>
 
-
   <!-- ============================================
-       GALLERY - SECTION REMOVED completely from HTML content
-  ============================================= -->
-  <!-- gallery-grid HTML block removed here -->
-
-
-  <!-- ============================================
-       COURSES (Skyblue bg, Black text cards)
+       COURSES
   ============================================= -->
   <section id="courses">
     <p class="section-eyebrow">What we teach</p>
@@ -968,9 +495,8 @@
     </div>
   </section>
 
-
   <!-- ============================================
-       CERTIFICATE VERIFICATION (Skyblue bg, card is white with black text)
+       CERTIFICATE VERIFICATION
   ============================================= -->
   <section id="verify">
     <p class="section-eyebrow">Authenticate</p>
@@ -996,9 +522,8 @@
     </div>
   </section>
 
-
   <!-- ============================================
-       FOOTER / CONTACT (Dark blue bg, White text)
+       FOOTER / CONTACT
   ============================================= -->
   <footer id="contact">
     <div class="footer-inner">
@@ -1016,24 +541,22 @@
       <div>
         <h3>Follow &amp; Contact Us</h3>
         <div class="footer-social-group">
-          <a href="[https://www.instagram.com/jsonssoftware?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==](https://www.instagram.com/jsonssoftware?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==)"
-   target="_blank" rel="noopener"
-   class="social-icon ig"
-   aria-label="Instagram">
-  <svg width="20" height="20" viewBox="0 0 24 24" fill="white" xmlns="[http://www.w3.org/2000/svg](http://www.w3.org/2000/svg)">
-    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-  </svg>
-</a>
-
-<!-- WhatsApp -->
-<a href="[https://wa.me/919159926299](https://wa.me/919159926299)"
-   target="_blank" rel="noopener"
-   class="social-icon wa"
-   aria-label="WhatsApp">
-  <svg width="20" height="20" viewBox="0 0 24 24" fill="white" xmlns="[http://www.w3.org/2000/svg](http://www.w3.org/2000/svg)">
-    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-  </svg>
-</a>
+          <a href="https://www.instagram.com/jsonssoftware?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+             target="_blank" rel="noopener"
+             class="social-icon ig"
+             aria-label="Instagram">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+            </svg>
+          </a>
+          <a href="https://wa.me/919159926299"
+             target="_blank" rel="noopener"
+             class="social-icon wa"
+             aria-label="WhatsApp">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+          </a>
         </div>
       </div>
 
@@ -1044,10 +567,8 @@
     </div>
   </footer>
 
-
   <!-- ============================================
        CERTIFICATE VERIFICATION LOGIC
-       EDIT: Add real certificate numbers here.
   ============================================= -->
   <script>
     const validCerts = [
